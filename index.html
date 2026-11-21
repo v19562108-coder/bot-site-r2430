@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Двойной Сыр — Шаурма</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin: 0; padding: 20px; color: #333; }
+        .card { background: white; border-radius: 15px; padding: 20px; margin: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; width: 250px; flex: 1; min-width: 200px; }
+        .emoji { font-size: 5em; display: block; margin: 10px 0; }
+        #petBtn { position: fixed; bottom: 20px; right: 20px; padding: 15px 30px; font-size: 1.2em; border: none; border-radius: 50px; background: #ff4757; color: white; cursor: pointer; z-index: 9999; transition: transform 0.2s; }
+        #petBtn:hover { transform: scale(1.1); }
+        header h1 { margin: 0; padding: 20px; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        main { display: flex; flex-wrap: wrap; justify-content: center; max-width: 1200px; margin: 0 auto; gap: 20px; }
+        .price { color: #764ba2; font-size: 1.5em; margin-top: 10px; }
+        .desc { font-size: 0.9em; color: #555; min-height: 40px; }
+    </style>
+</head>
+<body>
+    <header style="text-align:center; color:white; padding:20px;">
+        <h1>🍲 Двойной Сыр — Вкусная Шаурма</h1>
+    </header>
+    <main>
+        <!-- КАРТОЧКА 1 -->
+        <div class="card">
+            <span class="emoji">🧀🧀</span>
+            <h3>Классика с Двойным Сыром</h3>
+            <p class="desc">Нежное куриное мясо, свежий лаваш, двойной слой топпенга и тертого чеддера.</p>
+            <p class="price"><strong>350 ₽</strong></p>
+        </div>
+        <!-- КАРТОЧКА 2 -->
+        <div class="card">
+            <span class="emoji">🐮🧀</span>
+            <h3>Говяжья с Гаудой</h3>
+            <p class="desc">Сочная говядина, свежие овощи, двойной сыр гауда для максимального вкуса.</p>
+            <p class="price"><strong>450 ₽</strong></p>
+        </div>
+        <!-- КАРТОЧКА 3 -->
+        <div class="card">
+            <span class="emoji">🌶️🧀</span>
+            <h3>Острая с Моксарелой</h3>
+            <p class="desc">Острое куриное филе, острый соус, двойной плавленый моксарель — для смелых.</p>
+            <p class="price"><strong>380 ₽</strong></p>
+        </div>
+        <!-- КАРТОЧКА 4 -->
+        <div class="card">
+            <span class="emoji">🍔🧀</span>
+            <h3>Бургер-Шаурма</h3>
+            <p class="desc">Панкейки-сосиски, двойной сыр моцарелла, свежий лаваш — уникальное сочетание.</p>
+            <p class="price"><strong>420 ₽</strong></p>
+        </div>
+    </main>
+    <button id="petBtn" style="position:fixed; bottom:20px; right:20px; left:auto; top:auto; padding:15px 30px; font-size:1.2em; border:none; border-radius:50px; background:#ff4757; color:white; cursor:pointer; z-index:9999;">Погладить 🐉</button>
+    <script>
+        const btn = document.getElementById('petBtn');
+        // Устанавливаем начальные координаты явно через JS, чтобы CSS не конфликтовал
+        btn.style.left = (window.innerWidth - 180) + 'px'; 
+        btn.style.top = (window.innerHeight - 60) + 'px';
+
+        btn.addEventListener('mouseover', () => {
+            const maxX = window.innerWidth - btn.offsetWidth;
+            const maxY = window.innerHeight - btn.offsetHeight;
+            btn.style.left = Math.floor(Math.random() * maxX) + 'px';
+            btn.style.top = Math.floor(Math.random() * maxY) + 'px';
+            btn.style.right = 'auto'; // Сбрасываем right после первого прыжка
+            btn.style.bottom = 'auto';
+        });
+    </script>
+</body>
+</html>
